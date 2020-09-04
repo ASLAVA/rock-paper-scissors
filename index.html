@@ -2,64 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Rock-Paper-Scissors</title>
+  <link rel="stylesheet" href='styles.css'>
+  <title>Rock Paper Scissors</title>
 </head>
 <body>
-  <script>
-    
-
-    function game() {
-
-      var winCount = 0;
-      var loseCount = 0;
-
-      function computerPlay() {
-        switch(Math.floor(Math.random() * Math.floor(3))) {
-          case 0:
-            return 'rock';
-          case 1:
-            return 'paper';
-          default: 
-            return 'scissors';
-       }
+  <h1>Rock<br>Paper<br>Scissors</h1>
+  <script async src="script.js"></script>
+  <div class="score">
+    <div class="s2">SCORE:</div>
+    </div>
+  <ul class="choices">
+    <li class= "playerChoice"><button id="rock">✊</button></li>
+    <li class= "playerChoice"><button id="paper">🖐️</button></li>
+    <li class= "playerChoice"><button id="scissors">✌️</button></li>
       
-      }
+    <li class= "computerChoice disable-select" id="lastChoice">✊</li>
+    <li class="computerChoice disable-select">🖐️</li>
+    <li class="computerChoice disable-select">✌️</li>
+    </ul>
+   
 
-      function playRound(playerSelection, computerSelection) {
-
-        
-
-       function playerWins() {
-          console.log(`Player wins! ${playerSelection} beats ${computerSelection}!`);
-          winCount++;
-        }
-
-        function playerLooses() {
-         console.log(`Computer wins! ${computerSelection} beats ${playerSelection}!`);
-          loseCount++;
-        }
-
-
-        return (playerSelection === computerSelection) ? console.log('It\'s a Tie') :
-        (playerSelection === 'rock' && computerSelection === 'paper') ? playerLooses() :
-        (playerSelection === 'rock' && computerSelection === 'scissors') ? playerWins() :
-        (playerSelection === 'paper' && computerSelection === 'scissors') ? playerLooses() :
-        (playerSelection === 'paper' && computerSelection === 'rock') ? playerWins() :
-        (playerSelection === 'scissors' && computerSelection === 'rock') ? playerLooses() : playerWins();
-    } 
-
-      while (winCount <3 && loseCount <3){
-        let input = prompt('Enter your choice: (rock, paper, scissors)');
-        const playerSelection = input.toLowerCase();
-        const computerSelection = computerPlay();
-        playRound(playerSelection,computerSelection);
-      }
-
-      return (winCount > loseCount) ? (`Player wins. ${winCount} to ${loseCount}`) : 
-      (`Computer wins. ${loseCount} to ${winCount}`); 
-      
-    }
-
-  </script>
 </body>
 </html>
